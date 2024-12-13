@@ -65,7 +65,6 @@ function playGame(rounds) {
         let invalidInputCheck = playRound(getComputerChoice(), getHumanChoice());
         if (invalidInputCheck === 1) {i--}
         console.log(`
-            ------------------------------
             current state:
             
             You:        ${humanScore}
