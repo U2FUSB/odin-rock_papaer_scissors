@@ -57,7 +57,7 @@ function playGame(rounds) {
             return 1;
         }
     }
-    alert(`
+    console.log(`
         Welcome to Rock, Paper, Scissors!
         Win a duel against the computer!!!
     `)
@@ -81,5 +81,14 @@ function playGame(rounds) {
         console.log("The game ends in a tie.");
     }
 } 
-playGame(5);
 
+// EVLIST (button is clicked) -> 
+    // run playRound with "button corresponding" playerSelection
+    // RETURN results
+// ELEM create div
+// change clg's to something that shows as DOM text on the div
+// SHOW results of EVLIST on div. =>
+    // SHOW running score
+    // SHOW Winner (the one who wins 5 rounds / gets 5 points)
+
+playGame(5)
