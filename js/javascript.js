@@ -1,4 +1,3 @@
-// function that returns rock, paper or scissors, randomly, after it received input (prob 1,2, or 3) from the user
 function getComputerChoice() {
     let computerChoiceInt = Math.ceil(Math.random() * 3);
     switch (computerChoiceInt) {
@@ -15,7 +14,7 @@ function getComputerChoice() {
     }
 }
 function getHumanChoice() {
-    return prompt(`
+    return alert(`
         Enter your choice. Options are:
         ------------------------------
         Rock
@@ -37,7 +36,7 @@ function playGame(rounds) {
         
         `;
         if (humanChoiceLower === computerChoice) {
-            console.log(`${showChoices}Slatemate!`);
+            console.log(`${showChoices}Stalemate!`);
         } else if (
             (humanChoiceLower === "rock" && computerChoice === "scissors") ||
             (humanChoiceLower === "paper" && computerChoice === "rock") ||
@@ -61,9 +60,9 @@ function playGame(rounds) {
         Welcome to Rock, Paper, Scissors!
         Win a duel against the computer!!!
     `)
-    for (let i=1; i <= rounds; i++) {
+/*     for (let i=1; i <= rounds; i++) {
         let invalidInputCheck = playRound(getComputerChoice(), getHumanChoice());
-        if (invalidInputCheck === 1) {i--}
+        // if (invalidInputCheck === 1) {i--}
         console.log(`
             current state:
             
@@ -72,17 +71,18 @@ function playGame(rounds) {
 
             ${5-i} rounds left
             `);
-    }
+    } 
     if (humanScore > computerScore) {
         console.log("You win the game!!!");
     } else if (humanScore < computerScore) {
         console.log("You lose the game...");
     } else {
         console.log("The game ends in a tie.");
-    }
+    } */
 } 
 
 // EVLIST (button is clicked) -> 
+
     // run playRound with "button corresponding" playerSelection
     // RETURN results
 // ELEM create div
@@ -91,4 +91,4 @@ function playGame(rounds) {
     // SHOW running score
     // SHOW Winner (the one who wins 5 rounds / gets 5 points)
 
-playGame(5)
+playGame(2)
