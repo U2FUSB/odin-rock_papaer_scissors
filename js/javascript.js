@@ -61,26 +61,27 @@ function playRound(humanChoiceButton) {
     Computer chose: ${computerChoice}
     
     `;
-    console.log(humanChoiceLower)
-    console.log(computerChoice)
     if (humanChoiceLower === computerChoice) {
-        console.log(`${showChoices}Stalemate!`);
+        outputField.textContent=(`${showChoices}Stalemate!`);
+        outputField.textContent += `human Score: ${humanScore}, computer Score: ${computerScore}`
     } else if (
         (humanChoiceLower === "rock" && computerChoice === "scissors") ||
         (humanChoiceLower === "paper" && computerChoice === "rock") ||
         (humanChoiceLower === "scissors" && computerChoice === "paper")
     ) {
-        console.log(`${showChoices}You win!`);
+        outputField.textContent=(`${showChoices}You win!`);
         humanScore++;
+        outputField.textContent += `human Score: ${humanScore}, computer Score: ${computerScore}`
     } else if (
         (humanChoiceLower === "rock" && computerChoice === "paper") ||
-        (humanChoiceLower === "paper" && computerChoice === "scissorsk") ||
+        (humanChoiceLower === "paper" && computerChoice === "scissors") ||
         (humanChoiceLower === "scissors" && computerChoice === "rock")
     ) {
-        console.log(`${showChoices}You lose...`);
+        outputField.textContent=(`${showChoices}You lose...`);
         computerScore++;
+        outputField.textContent += `human Score: ${humanScore}, computer Score: ${computerScore}`
     } else {
-        console.log("Please enter valid input.");
+        outputField.textContent=("Please enter valid input.");
         return 1;
     }
 }
@@ -88,11 +89,12 @@ function playRound(humanChoiceButton) {
 let humanScore = 0;
 let computerScore = 0;
 let humanChoiceButtons = Array.from(document.querySelectorAll(".selection-button"));
+let outputField = document.querySelector(".output");
+
 humanChoiceButtons.forEach(humanChoiceButton => {
     humanChoiceButton.addEventListener("click", playRound)
 });
-// ELEM create div
-// change clg's to something that shows as DOM text on the div
+if (humanScore >= 5 || computerScore >= 5) outputField.textContent = "Game is over!" 
 // SHOW results of EVLIST on div. =>
     // SHOW running score
     // SHOW Winner (the one who wins 5 rounds / gets 5 points)
