@@ -1,18 +1,3 @@
-function getComputerChoice() {
-    let computerChoiceInt = Math.ceil(Math.random() * 3);
-    switch (computerChoiceInt) {
-        case 1:
-            return "rock";
-            break;
-        case 2:
-            return "paper";
-            break;
-        case 3:
-            return "scissors";
-            break;
-        default:
-    }
-}
 function getHumanChoice() {
     return alert(`
         Enter your choice. Options are:
@@ -24,7 +9,7 @@ function getHumanChoice() {
         Other choices will be ignored!
         (Because they do nothing...)
     `);
-}
+} // WHEN output works on div, change this to show on div
 function playGame(rounds) {
     console.log(`
         Welcome to Rock, Paper, Scissors!
@@ -49,14 +34,35 @@ function playGame(rounds) {
     } else {
         console.log("The game ends in a tie.");
     } */
+} // WHEN div exists, show output from here on div
+// Up to this point, unused for now, because of refactoring
+
+function getComputerChoice() {
+    let computerChoiceInt = Math.ceil(Math.random() * 3);
+    switch (computerChoiceInt) {
+        case 1:
+            return "rock";
+            break;
+        case 2:
+            return "paper";
+            break;
+        case 3:
+            return "scissors";
+            break;
+        default:
+    }
 }
-function playRound(computerChoice, humanChoice) {
+function playRound(humanChoiceButton) {
+    const computerChoice = getComputerChoice()
+    const humanChoice = humanChoiceButton.target.textContent
     const humanChoiceLower = (humanChoice ?? "invalid input").toLowerCase();
     const showChoices = `
     You chose:      ${humanChoiceLower}
     Computer chose: ${computerChoice}
     
     `;
+    console.log(humanChoiceLower)
+    console.log(computerChoice)
     if (humanChoiceLower === computerChoice) {
         console.log(`${showChoices}Stalemate!`);
     } else if (
@@ -81,11 +87,10 @@ function playRound(computerChoice, humanChoice) {
 
 let humanScore = 0;
 let computerScore = 0;
-let selectionButtons = Array.from(document.querySelectorAll(".selection-button"));
-selectionButtons.forEach(selectionButton => {
-    selectionButton.addEventListener("click", playRound)
+let humanChoiceButtons = Array.from(document.querySelectorAll(".selection-button"));
+humanChoiceButtons.forEach(humanChoiceButton => {
+    humanChoiceButton.addEventListener("click", playRound)
 });
-    // RETURN results
 // ELEM create div
 // change clg's to something that shows as DOM text on the div
 // SHOW results of EVLIST on div. =>
