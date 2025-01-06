@@ -11,6 +11,7 @@ function getComputerChoice() {
             return "scissors";
             break;
         default:
+            return "something went wrong";
     }
 }
 function playRound(humanChoiceButton) {
@@ -34,17 +35,10 @@ function playRound(humanChoiceButton) {
         outputField.textContent = `${showChoices}You win!`;
         humanScore++;
         outputField.textContent += `human Score: ${humanScore}, computer Score: ${computerScore}`;
-    } else if (
-        (humanChoice === "rock" && computerChoice === "paper") ||
-        (humanChoice === "paper" && computerChoice === "scissors") ||
-        (humanChoice === "scissors" && computerChoice === "rock")
-    ) {
+    } else {
         outputField.textContent = `${showChoices}You lose...`;
         computerScore++;
         outputField.textContent += `human Score: ${humanScore}, computer Score: ${computerScore}`;
-    } else {
-        outputField.textContent = "Please enter valid input.";
-        return 1;
     }
 }
 function playGame(humanChoiceButton) {
