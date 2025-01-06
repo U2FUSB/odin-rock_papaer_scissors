@@ -1,6 +1,34 @@
 * {
     margin: 0;
     padding: 0;
+    font-size: 1.5rem;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+body {
+    width: 100%;
+    height: 100%;
+}
+section.game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 3em;
+}
+div.selection-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 3vw;
+}
+button.selection-button {
+    flex-grow: 1;
+    height: 10vh;
+    border-radius: 1em;
+    background: radial-gradient(
+        circle,
+        rgba(41, 170, 196, 1) 4%,
+        rgba(255, 255, 255, 0.7847514005602241) 32%,
+        rgba(164, 185, 38, 0.7455357142857143) 74%
+    );
 }
 
 div.output {
